@@ -19,6 +19,10 @@ const league = {
   membre4: {
     nom: 'Catwoman',
     age: 35
+  },
+  membre5:{
+    nom: 'Robin',
+    age: 23
   }
 }
 
@@ -39,35 +43,26 @@ class App extends React.Component
   }
 
   render() {
+    const list = Object.keys(this.state.league).map(iteration => {
+      return (
+        <Membre
+          key={iteration} 
+          nom={this.state.league[iteration].nom}
+          age={this.state.league[iteration].age}
+        />
+      )
+    })
+
+
     return(
       <>
         <h1>test</h1>
+        {list}
+
         <Button 
           plus={this.state.plus}
           vieillir={()=> {this.handleClick(this.state.plus)}}
         />
-        <Membre 
-          nom={this.state.league.membre1.nom}
-          age={this.state.league.membre1.age}
-        />
-        <Membre
-           nom={this.state.league.membre2.nom}
-          age={this.state.league.membre2.age}
-        />
-        <Membre
-           nom={this.state.league.membre3.nom}
-          age={this.state.league.membre3.age}
-        />
-        <Membre
-           nom={this.state.league.membre4.nom}
-          age={this.state.league.membre4.age}
-        />
-        <Membre 
-          nom="Kobe"
-          age="45"
-        >
-          LAKERS
-        </Membre>
       </>
     )
   }
