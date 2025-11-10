@@ -43,6 +43,13 @@ class App extends React.Component
     
   }
 
+  handleShow = () =>{
+    // ! donne la négation, l'inverse
+    const isShow = !this.state.isShow 
+    //this.setState({isShow:isShow})
+    this.setState({isShow})
+  }
+
   render() {
     const list = Object.keys(this.state.league).map(iteration => {
       return (
@@ -67,7 +74,7 @@ class App extends React.Component
         {
             this.state.isShow ? <strong>Je suis là</strong> : null
         }
-          <button>
+          <button onClick={this.handleShow}>
             { this.state.isShow ? 'cacher' : 'Montrer'}
           </button>
 
