@@ -30,7 +30,8 @@ class App extends React.Component
 {
   state = {
     league : league,
-    plus: 2
+    plus: 2,
+    isShow: false
   }
 
   handleClick = (nb) => {
@@ -58,6 +59,19 @@ class App extends React.Component
       <>
         <h1>test</h1>
         {list}
+
+        <Membre
+          nom="test"
+          age="45"
+        >
+        {
+            this.state.isShow ? <strong>Je suis là</strong> : null
+        }
+          <button>
+            { this.state.isShow ? 'cacher' : 'Montrer'}
+          </button>
+
+        </Membre>
 
         <Button 
           plus={this.state.plus}
