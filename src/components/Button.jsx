@@ -1,9 +1,9 @@
 const Button = (props) => {
-    return ( 
+    return (
         <button onClick={props.vieillir}>
             +{props.plus}
         </button>
-     );
+    );
 }
- 
+
 export default Button;
